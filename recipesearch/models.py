@@ -51,6 +51,8 @@ class Comments(models.Model):
 	comment_rating = models.IntegerField(default=0, choices=RATING)
 	recipe = models.ForeignKey(Recipes)
 	user = models.ForeignKey(User)
+	date_added = models.DateTimeField(auto_now_add=True, editable=False, null=True)
+
 
 
 	

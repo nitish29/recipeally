@@ -1,0 +1,14 @@
+#This is a sample local settings file
+
+from recipeally.settings import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'recipeally',
+        'USER': 'nitish',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
