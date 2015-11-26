@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'recipeally.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
+        'NAME': 'recipeally',
+        'USER': 'nitish',
         'PASSWORD': '',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
