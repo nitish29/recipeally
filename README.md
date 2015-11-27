@@ -22,6 +22,15 @@
 
 - open browser and type localhost:8000, you should see the default django page
 
+- To add the the configured css to the page you're making add 
+<head>
+{% load staticfiles %}
+<link rel='stylesheet' href='{% static "style.css" %}' type='text/css' />
+</head>
+
+to the top of the page
+
+Copy HTML from http://inspirythemesdemo.com/alt-foodrecipes/
 
 #Steps followed for deploying the web app
 
