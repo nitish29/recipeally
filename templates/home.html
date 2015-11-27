@@ -1,0 +1,404 @@
+<head>
+{% load staticfiles %}
+<link rel='stylesheet' href='{% static "style.css" %}' type='text/css' />
+</head>
+Home Search page
+{% if user.is_authenticated %}
+<h1>Rango says... hello {{ user.username }}!</h1>
+{% else %}
+<h1>Rango says... hello world!</h1>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a href="/logout/">Logout</a><br />
+{% else %}
+<a href="/register/">Register Here</a><br />
+<a href="/login/">Login</a><br />
+{% endif %}
+
+{% load staticfiles %}
+
+
+<div id="header-wrapper" class="clearfix">
+	<div id="header" class="clearfix">
+		<!-- WEBSITE LOGO -->
+					<a class="responsive_logo" href="http://inspirythemesdemo.com/alt-foodrecipes"><img src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/12/logo1.png" alt="" class="logo" /></a>
+			<h1 class="sitenametext">Food Recipes</h1>					<img class="header-img" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/themes/inspirythemes-food-recipes/images/header-image.png" height="117" width="463" alt="Food Recipes" />
+				
+	</div><!-- end of header div -->
+
+	<span class="w-pet-border"></span>
+
+	<!-- NAVIGATION BAR STARTS HERE -->
+	<div id="nav-wrap">
+		<div class="inn-nav clearfix">
+
+			<!-- MAIN NAVIGATION STARTS HERE -->
+			<ul id="menu-main-navigation" class="nav"><li id="menu-item-865" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11 current_page_item menu-item-865"><a href="http://inspirythemesdemo.com/alt-foodrecipes/">Home</a></li>
+<li id="menu-item-902" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-902"><a href="#">Sliders</a>
+<ul class="sub-menu">
+	<li id="menu-item-901" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11 current_page_item menu-item-901"><a href="http://inspirythemesdemo.com/alt-foodrecipes/">Left Image Slider</a></li>
+	<li id="menu-item-899" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-899"><a href="http://inspirythemesdemo.com/alt-foodrecipes/basic-slider/">Basic Slider</a></li>
+	<li id="menu-item-900" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-900"><a href="http://inspirythemesdemo.com/alt-foodrecipes/nivo-slider/">Nivo Slider</a></li>
+	<li id="menu-item-897" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-897"><a href="http://inspirythemesdemo.com/alt-foodrecipes/thumbnail-slider/">Thumbnail Slider</a></li>
+</ul>
+</li>
+<li id="menu-item-874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-874"><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipes-listing/">Recent Recipes</a>
+<ul class="sub-menu">
+	<li id="menu-item-911" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-911"><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/?var=1">Variation One</a></li>
+	<li id="menu-item-910" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-910"><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/?var=2">Variation Two</a></li>
+</ul>
+</li>
+<li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="http://inspirythemesdemo.com/alt-foodrecipes/submit-recipe/">Submit Recipe</a></li>
+<li id="menu-item-866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-866"><a href="http://inspirythemesdemo.com/alt-foodrecipes/blog/">Blog</a></li>
+<li id="menu-item-867" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-867"><a href="http://inspirythemesdemo.com/alt-foodrecipes/about-us/">About</a></li>
+<li id="menu-item-869" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-869"><a href="#">Skins</a>
+<ul class="sub-menu">
+	<li id="menu-item-873" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-873"><a href="http://inspirythemesdemo.com/alt-foodrecipes/?skin=skin_default">Default</a></li>
+	<li id="menu-item-870" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-870"><a href="http://inspirythemesdemo.com/alt-foodrecipes/?skin=skin_blue">Blue</a></li>
+	<li id="menu-item-871" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-871"><a href="http://inspirythemesdemo.com/alt-foodrecipes/?skin=skin_red">Red</a></li>
+	<li id="menu-item-872" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-872"><a href="http://inspirythemesdemo.com/alt-foodrecipes/?skin=skin_orange">Orange</a></li>
+</ul>
+</li>
+<li id="menu-item-878" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-878"><a href="http://inspirythemesdemo.com/alt-foodrecipes/features/">Features</a>
+<ul class="sub-menu">
+	<li id="menu-item-916" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-916"><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-advance-search/">Advance Search</a></li>
+	<li id="menu-item-892" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-892"><a href="http://inspirythemesdemo.com/alt-foodrecipes/chef-listings/">Chef Listings</a></li>
+	<li id="menu-item-921" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-921"><a target="_blank" href="http://inspirythemesdemo.com/alt-foodrecipes/screenshots/edit-profile.jpg">User Profile</a></li>
+	<li id="menu-item-879" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-879"><a href="http://inspirythemesdemo.com/alt-foodrecipes/features/">Features</a></li>
+	<li id="menu-item-877" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-877"><a href="http://inspirythemesdemo.com/alt-foodrecipes/typography/">Typography</a></li>
+	<li id="menu-item-876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-876"><a href="http://inspirythemesdemo.com/alt-foodrecipes/faq/">FAQ</a></li>
+</ul>
+</li>
+<li id="menu-item-875" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-875"><a href="http://inspirythemesdemo.com/alt-foodrecipes/contact-us/">Contact</a></li>
+<li id="menu-item-868" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-868"><a href="http://themeforest.net/item/food-recipes-wordpress-theme/1923882?ref=960development">Buy Theme</a></li>
+</ul>			<!-- MAIN NAVIGATION ENDS HERE -->
+
+
+			<!-- SOCIAL NAVIGATION -->
+			<ul id="menu-social-menu" class="social-nav"><li id="menu-item-517" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-517"><a href="#">Facebook</a></li>
+<li id="menu-item-518" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-518"><a href="#">Twitter</a></li>
+<li id="menu-item-519" class="rss menu-item menu-item-type-custom menu-item-object-custom menu-item-519"><a href="#">RSS</a></li>
+<li id="menu-item-864" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-864"><a href="#">Flickr</a></li>
+</ul>		</div>
+	</div><!-- end of nav-wrap -->
+	<!-- NAVIGATION BAR ENDS HERE -->
+
+</div><!-- end of header-wrapper div -->
+
+<!-- ============= HEADER ENDS HERE ============== -->
+
+
+<!-- ============= CONTAINER STARTS HERE ============== -->
+<div class="main-wrap">
+	<div id="container">
+		<!-- WEBSITE SEARCH STARTS HERE -->
+		
+		<div class="top-search  clearfix">
+			<h3 class="head-pet"><span>Recipe Search</span></h3>
+							<form action="http://inspirythemesdemo.com/alt-foodrecipes" id="searchform">
+					<p>
+						<input type="text" name="s" id="s" class="field" value="" placeholder="Search for" />
+						<input type="submit" name="s_submit" id="s-submit" value="" />
+					</p>
+				</form>
+                <p class="statement"><span class="fireRed">Recipe Types:</span>
+                                                <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/cheese-2/">Cheese</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chicken-2/">Chicken</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chocolate/">Chocolate</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/pizzas/">Pizzas</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/potatos/">Potatos</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/rools/">Rolls</a>
+                                            </p>
+			
+
+
+		</div>
+        <!-- end of top-search div-->
+
+		<!-- ============= CONTENT AREA STARTS HERE ============== -->
+		<div id="content" class="clearfix homepage"><!-- SLIDER STARTS HERE -->
+        <div id="slider" class="slider2">
+
+            <!-- Start Most Rated -->
+
+                        <div class="most-rated">
+                <span class="most-rated-title">Most Rated</span>
+                <div class="item">
+                                                <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Goat-Cheese-Chorizo-Rolls21-63x53.jpg" class="attachment-most-rated-thumb wp-post-image" alt="Goat-Cheese-Chorizo-Rolls2" /></a>
+                            <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/">Goat Cheese and Chorizo Rolls</a></h5>
+                            <p>You know how bacon is...</p>
+                                                            <p class="rate"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span></p>
+                                                                    </div>
+            </div><!-- End Most Rated -->
+
+            <h2 class="slider-head">
+                Top Recipes <span>of the day</span>            </h2>
+
+            <!-- Top recipes statement -->
+            <p class="slogan">
+                Sliding recipes are much more tasty as food than sliding images. :D            </p>
+
+            <!-- Start of Slides -->
+            <div class="slides right-slider">
+                <ul class="cycle-slideshow"  data-cycle-fx=scrollHorz data-cycle-timeout=4000 data-cycle-slides="li" data-cycle-pager=".cycle-pager">
+                                                <li>
+                                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/"
+                                       class="img-box"><img width="515" height="262" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pimento-Cheese-Potato-Skins2-515x262.jpg" class="attachment-li-slider-thumb wp-post-image" alt="Pimento-Cheese-Potato-Skins" /></a>
+                                
+                                <div class="slide-info">
+                                    <h2><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/">Pimento Cheese Potato Skins</a></h2>
+                                                                            <div class="rating">
+                                            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                            <span>Average Rating:                                                <span>(4.3 / 5)</span></span>
+                                        </div>
+                                                                        <p>If there’s anything better than the perfect baked potato, it would have to be a twice baked potato. I’m sure everybody’s Mom, Grandma or next-door neighbor has a ...</p>
+                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/"
+                                       class="readmore">Read more</a>
+                                </div>
+                            </li>
+                                                    <li>
+                                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/"
+                                       class="img-box"><img width="515" height="262" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Goat-Cheese-Chorizo-Rolls21-515x262.jpg" class="attachment-li-slider-thumb wp-post-image" alt="Goat-Cheese-Chorizo-Rolls2" /></a>
+                                
+                                <div class="slide-info">
+                                    <h2><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/">Goat Cheese and Chorizo Rolls</a></h2>
+                                                                            <div class="rating">
+                                            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                            <span>Average Rating:                                                <span>(4.3 / 5)</span></span>
+                                        </div>
+                                                                        <p>You know how bacon is all the rage these days? Bacon dipped in chocolate, bacon topped donuts, bacon beurre blanc and so and so. For me, it’s all ...</p>
+                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/"
+                                       class="readmore">Read more</a>
+                                </div>
+                            </li>
+                                                    <li>
+                                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/"
+                                       class="img-box"><img width="515" height="262" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Grilled-Five-Spice-Chicken1-515x262.jpg" class="attachment-li-slider-thumb wp-post-image" alt="Grilled-Five-Spice-Chicken" /></a>
+                                
+                                <div class="slide-info">
+                                    <h2><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/">Vietnamese Style Grilled Five Spice Chicken</a></h2>
+                                                                            <div class="rating">
+                                            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                            <span>Average Rating:                                                <span>(4.4 / 5)</span></span>
+                                        </div>
+                                                                        <p>It may not be in my best interest to admit this, but here goes nothing: grilling chicken scares me. It’s just too easy to get wrong. Black, cremated ...</p>
+                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/"
+                                       class="readmore">Read more</a>
+                                </div>
+                            </li>
+                                        </ul>
+                <div class="sliderNav">
+                    <div class="cycle-pager"></div>
+                </div>
+            </div><!-- end of slides -->
+
+        </div><!-- end of Slider div -->
+    <!-- SLIDER AREA ENDS HERE -->
+	<div id="left-area" class="clearfix full-wide homepage">
+					<div class="post-11 page type-page status-publish hentry" id="page-11">
+							</div><!-- end of post div -->
+					</div><!-- end of left-area -->
+
+
+	<!-- Home Page Whats Hot Recipe Area -->
+	<div id="whats-hot">
+		<h2 class="w-bot-border">What's <span>Hot</span></h2>
+
+		<ul class="cat-list clearfix">
+							<li>
+											<h3><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chocolate/">Chocolate</a></h3>
+											<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/" class="img-box">
+							<img width="222" height="144" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/7a0a46455c4ec56a5a02c097374fc5131-222x144.jpg" class="attachment-recipe-4column-thumb wp-post-image" alt="7a0a46455c4ec56a5a02c097374fc513" />						</a>
+										<h4>
+						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/">
+							Chocolate Earl Grey Pots...						</a>
+					</h4>
+					<p>
+						2 cups cream 120 grams dark chocolate, chopped 2 bags of earl grey tea 6 egg yolks 3 Tablespoons of sugar 1/2 cup whipping						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/">...more						</a>
+					</p>
+				</li>
+							<li>
+											<h3><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/pizzas/">Pizzas</a></h3>
+											<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/" class="img-box">
+							<img width="222" height="144" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pesto-Pizza-with-Roasted-Garlic-Potato21-222x144.jpg" class="attachment-recipe-4column-thumb wp-post-image" alt="Pesto-Pizza-with-Roasted-Garlic-Potato2" />						</a>
+										<h4>
+						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/">
+							Pesto Pizza With Roasted...						</a>
+					</h4>
+					<p>
+						Mention potatoes on pizza and you’ll get one of two responses. From the folks who’ve tried it, you can expect an enthusiastic thumbs up.						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/">...more						</a>
+					</p>
+				</li>
+							<li>
+											<h3><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/cheese-2/">Cheese</a></h3>
+											<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="img-box">
+							<img width="222" height="144" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Goat-Cheese-Chorizo-Rolls21-222x144.jpg" class="attachment-recipe-4column-thumb wp-post-image" alt="Goat-Cheese-Chorizo-Rolls2" />						</a>
+										<h4>
+						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/">
+							Goat Cheese and Chorizo...						</a>
+					</h4>
+					<p>
+						You know how bacon is all the rage these days? Bacon dipped in chocolate, bacon topped donuts, bacon beurre blanc and so and so.						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/">...more						</a>
+					</p>
+				</li>
+							<li>
+											<h3><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chicken-2/">Chicken</a></h3>
+											<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/" class="img-box">
+							<img width="222" height="144" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Grilled-Five-Spice-Chicken1-222x144.jpg" class="attachment-recipe-4column-thumb wp-post-image" alt="Grilled-Five-Spice-Chicken" />						</a>
+										<h4>
+						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/">
+							Vietnamese Style Grilled Five...						</a>
+					</h4>
+					<p>
+						It may not be in my best interest to admit this, but here goes nothing: grilling chicken scares me. It’s just too easy to						<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/">...more						</a>
+					</p>
+				</li>
+					</ul>
+	</div><!-- end of whats-hot div -->
+
+	<span class="w-pet-border"></span>
+	<div id="home-infos" class="clearfix">
+		<div id="weekly_special-2" class="widget nostylewt Weekly_Special_Widget wk-special clearfix"><h2 class="w-bot-border"><span>Weekly</span> Special</h2>                        <div class="img-box for-all">
+                            <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/"><img width="122" height="132" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Goat-Cheese-Chorizo-Rolls21-122x132.jpg" class="attachment-weekly-special-thumb wp-post-image" alt="Goat-Cheese-Chorizo-Rolls2" /></a>
+                        </div>
+                                                <div class="for-res">
+                            <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/"><img width="251" height="132" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Goat-Cheese-Chorizo-Rolls21-251x132.jpg" class="attachment-weekly-for-res wp-post-image" alt="Goat-Cheese-Chorizo-Rolls2" /></a>
+                        </div>
+                        <h4><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/">Goat Cheese and Chorizo Rolls</a></h4>
+                        <p>You know how bacon is all the rage these days? Bacon dipped in chocolate, bacon topped donuts, bacon beurre blanc and...<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/"> more</a></p>
+                        <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="readmore">Read More</a>
+                    </div><div class="widget newsEvent nostylewt">
+					<h2 class="w-bot-border"><span>News</span> and Events</h2>
+					<ul class="list">                    <li>
+                        <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/habitasse-augue-penatibus-sit-dictumst-arcu-in/">Best Bread pairing for Barbeque?</a></h5>
+                        <p>Quis sed mid elit, risus aliquet placerat. Pid et, vel phasellus augue...<a href="http://inspirythemesdemo.com/alt-foodrecipes/habitasse-augue-penatibus-sit-dictumst-arcu-in/">more</a></p>
+                    </li>
+                                    <li>
+                        <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/habitasse-vut-odio-pulvinar-dignissim-magna-ridiculus/">baking question</a></h5>
+                        <p>Quis sed mid elit, risus aliquet placerat. Pid et, vel phasellus augue...<a href="http://inspirythemesdemo.com/alt-foodrecipes/habitasse-vut-odio-pulvinar-dignissim-magna-ridiculus/">more</a></p>
+                    </li>
+                </ul>
+				</div><!-- end of fav-recipes widget --><div class="widget fav-recipes nostylewt">
+						<h2 class="w-bot-border"><span>MISC</span> Recipes</h2>
+											<div class="tabed">
+													<ul class="tabs clearfix"><li class="current">Recent<span></span></li><li>Popular<span></span></li><li>Random<span></span></li></ul>
+													<div class="block current">
+															<ul class="highest">                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/7a0a46455c4ec56a5a02c097374fc5131-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="7a0a46455c4ec56a5a02c097374fc513" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/">Chocolate Earl Grey Pots de Creme Recipe</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.4 / 5)
+                                </p>
+                                                </li>
+                                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pesto-Pizza-with-Roasted-Garlic-Potato21-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="Pesto-Pizza-with-Roasted-Garlic-Potato2" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/">Pesto Pizza With Roasted Garlic &#038; Potato</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.4 / 5)
+                                </p>
+                                                </li>
+                                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pimento-Cheese-Potato-Skins2-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="Pimento-Cheese-Potato-Skins" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/">Pimento Cheese Potato Skins</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.3 / 5)
+                                </p>
+                                                </li>
+                </ul>
+													 </div><!-- end of block div --><div class="block">
+															<ul class="highest">                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Goat-Cheese-Chorizo-Rolls21-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="Goat-Cheese-Chorizo-Rolls2" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/">Goat Cheese and Chorizo Rolls</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.3 / 5)
+                                </p>
+                                                </li>
+                                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pimento-Cheese-Potato-Skins2-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="Pimento-Cheese-Potato-Skins" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/">Pimento Cheese Potato Skins</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.3 / 5)
+                                </p>
+                                                </li>
+                                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/jalapeno-poppers/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Jalapeño-Poppers1-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="Jalapeño-Poppers" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/jalapeno-poppers/">Jalapeno Poppers</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.3 / 5)
+                                </p>
+                                                </li>
+                </ul>
+													 </div><!-- end of block div --><div class="block">
+															<ul class="highest">                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Grilled-Five-Spice-Chicken1-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="Grilled-Five-Spice-Chicken" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/vietnamese-style-grilled-five-spice-chicken/">Vietnamese Style Grilled Five Spice Chicken</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.4 / 5)
+                                </p>
+                                                </li>
+                                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pimento-Cheese-Potato-Skins2-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="Pimento-Cheese-Potato-Skins" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pimento-cheese-potato-skins/">Pimento Cheese Potato Skins</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.3 / 5)
+                                </p>
+                                                </li>
+                                    <li>
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/7a0a46455c4ec56a5a02c097374fc5131-63x53.jpg" class="attachment-sidebar-tabs wp-post-image" alt="7a0a46455c4ec56a5a02c097374fc513" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/">Chocolate Earl Grey Pots de Creme Recipe</a></h5>
+                                                        <p class="rate">
+                                    <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span>                                    (4.4 / 5)
+                                </p>
+                                                </li>
+                </ul>
+													 </div><!-- end of block div --><div class="bot-border"></div>
+											</div><!-- end of tabed div -->
+									</div><!-- end of fav-recipes widget --><div class="ads-642x79">
+                        <a href="#"><img src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/ad-652x951.png" width="642" height="79" alt="Recipe Ads" /></a>
+                     </div>	</div><!-- end of home-infos div -->
+
+  				</div><!-- end of content div -->
+                <div class="bot-ads-area">
+                		                </div>
+        		<!-- Content ends here -->
+
+		</div><!-- end of container div -->
+    </div>
+	<div class="w-pet-border"></div>
+<!-- Container ends here -->
+
+
+<!--  Bottom area starts here -->
+	    <div id="bottom-wrap">
+		    	<ul id="bottom" class="clearfix">
+
+								            <li class="about">
+                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes"><img src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/12/footer-logo1.png" alt="Food Recipes" class="footer-logo" /></a>
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum....</p>
+                                    <a href="#" class="readmore">Read more About Us</a>
+                            </li>
+
+                                		<li id="recent_recipe_footer_widget-2" class="Recent_Recipe_Footer_Widget"><h2 class="w-bot-border"><span>Recent</span> Recipes</h2>
+						<ul class="recent-posts nostylewt">                    <li class="clearfix">
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/7a0a46455c4ec56a5a02c097374fc5131-63x53.jpg" class="attachment-most-rated-thumb wp-post-image" alt="7a0a46455c4ec56a5a02c097374fc513" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/">Chocolate Earl Grey Pots de...</a></h5>
+                        <p>2 cups cream 120 grams dark chocolate, chopped 2 bags...</p>
+                    </li>
+                                    <li class="clearfix">
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pesto-Pizza-with-Roasted-Garlic-Potato21-63x53.jpg" class="attachment-most-rated-thumb wp-post-image" alt="Pesto-Pizza-with-Roasted-Garlic-Potato2" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/">Pesto Pizza With Roasted Garlic...</a></h5>
+                        <p>Mention potatoes on pizza and you’ll get one of two...</p>
+                    </li>
+                </ul></li>                        		<li id="twitter_footer_widget-2" class="Twitter_Footer_Widget"><h2 class="w-bot-border"><span>Twitter</span> Feed</h2><div id="twitter_update_list" class="widget nostylewt"><ul><li class="twitter-item">Celebrating's always better with cake. Thanks for the congratulatory sugar rush <a href="http://twitter.com/commbank" class="twitter-user">@commbank</a>! <a href="https://t.co/44GbIMkWLQ" class="twitter-link">https://t.co/44GbIMkWLQ</a><br><span class="twitter-timestamp">23 hours ago</span></li><li class="twitter-item">A great group of proud <a href="http://twitter.com/#search?q=WhiteRibbonDay" class="twitter-link">#WhiteRibbonDay</a> supporters. Learn more about this important day at <a href="https://t.co/h222ZeLPB0" class="twitter-link">https://t.co/h222ZeLPB0</a>. <a href="https://t.co/oNo2Vbz2rV" class="twitter-link">https://t.co/oNo2Vbz2rV</a><br><span class="twitter-timestamp">25th Nov 2015</span></li></ul></div></li>
+
+				</ul><!-- end of bottom div -->
+	    </div><!-- end of bottom-wrap div -->
+<!-- Bottom area ends here -->
+
+
+<!-- Footer starts here -->
+
+        <div id="footer-wrap">
+				<div id="footer">
+											<p class="copyright">Copyright © 2015. Food Recipes - A Premium Wordpress Theme</p>
+						<p class="dnd">Developed by <a href="http://inspirythemes.com/" target="_blank">InspityThemes</a></p>
+									</div><!-- end of footer div -->
+		</div>
