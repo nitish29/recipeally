@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'recipesearch.views.home', name='home'),
+    url(r'^(?P<comm_id>.*)$', 'recipesearch.views.share', name='share'),
     url(r'^registration/', 'recipeally.views.registration', name='registration'),
     url(r'^login/$', 'recipeally.views.user_login', name='login'),
     url(r'^logout/$', 'recipeally.views.user_logout', name='logout'),
