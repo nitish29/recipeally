@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^registration/', 'recipeally.views.registration', name='registration'),
     url(r'^login/$', 'recipeally.views.user_login', name='login'),
     url(r'^logout/$', 'recipeally.views.user_logout', name='logout'),
+	url(r'^recipe$', 'recipeally.views.recipe', name='recipe'),
     #url('^', include('django.contrib.auth.urls')),
     #url(r'^login/$', 'django.contrib.auth.views.login'),
     #url(r'^logout/$', 'django.contrib.auth.views.logout'),
