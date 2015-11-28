@@ -87,3 +87,12 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/')
+
+    # Display a particular recipe.
+def recipe(request):
+    recipe_id = request.GET.get('id')
+    print (recipe_id)
+    context={
+                "id_url":recipe_id
+            }
+    return render(request, "recipe.html",context)
