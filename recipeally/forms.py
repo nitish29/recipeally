@@ -1,4 +1,5 @@
 from django import forms
+from recipesearch.models import Comments
 
 from recipesearch.models import User
 from recipesearch.models import UserProfile
@@ -19,3 +20,14 @@ class ProfileForm(forms.ModelForm):
 	class Meta:
 		model=UserProfile
 		fields=['user_about']
+
+# class PostForm(forms.ModelForm):
+# 	class Meta:
+# 		model=Comments
+#     	fields=['comment_text']
+
+
+class PostForm(forms.ModelForm):
+	class Meta:
+		model=Comments
+		fields=['comment_text']

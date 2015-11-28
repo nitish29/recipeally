@@ -8,6 +8,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models.signals import post_save
+from .forms import PostForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -39,6 +40,19 @@ def registration(request):
 				"title": "Thank You"
 			}
 	return render(request, "registration.html",context)
+
+
+def comment(request):
+    form=PostForm(request.POST or None)
+    context={
+    "form": form
+    }
+    if form.is_valid():
+        instance=form.save(commit=False)
+        instance.recipe_id=1
+        instance.user_id=1
+        instance.save()
+    return render(request,"comments.html",context)
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
