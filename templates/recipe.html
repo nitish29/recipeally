@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 <h1>{{title}}</h1>
 
@@ -62,6 +61,8 @@
             {% endfor %}
             {% for key, value in a.items %}
             {% if key == "url" %}
+            <span class="type"><a href="https://www.facebook.com/sharer/sharer.php?u=52.33.209.172" target="_blank">FB Share
+            </a></span>
 			<span class="type"><a href={{value}} class="readmore">Read More</a></span>
             {% endif %}
             {% endfor %}
