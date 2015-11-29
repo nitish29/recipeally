@@ -7,7 +7,9 @@ class SignUpForm(forms.ModelForm):
 	class Meta:
 		model=User
 		fields=['username','first_name','last_name','email','password']
-
+		widgets = {
+            'password': forms.PasswordInput(),
+        }
 	def clean_email(self):
 		email=self.cleaned_data.get('email')
 		email_base,provider=email.split("@")
