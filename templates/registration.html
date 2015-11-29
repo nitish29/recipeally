@@ -1,8 +1,50 @@
+{% extends 'base.html' %}
 <h1>{{title}}</h1>
 
-<form method='POST' action=''>{% csrf_token %}
-{{form.as_p}}
-{{form2.as_p}}
-<input type='submit' value='Sign Up'>
 
-</form>
+
+
+
+{% block title %}Login{% endblock %}
+
+{% block body_block %}
+<div class="main-wrap">
+    <div id="container">
+        <!-- WEBSITE SEARCH STARTS HERE -->
+        
+        <div class="top-search  clearfix">
+            <h3 class="head-pet"><span>Recipe Search</span></h3>
+                            <form action="http://inspirythemesdemo.com/alt-foodrecipes" id="searchform">
+                    <p>
+                        <input type="text" name="s" id="s" class="field" value="" placeholder="Search for" />
+                        <input type="submit" name="s_submit" id="s-submit" value="" />
+                    </p>
+                </form>
+                <p class="statement"><span class="fireRed">Recipe Types:</span>
+                                                <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/cheese-2/">Cheese</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chicken-2/">Chicken</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chocolate/">Chocolate</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/pizzas/">Pizzas</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/potatos/">Potatos</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/rools/">Rolls</a>
+                                            </p>
+            
+
+
+        </div>
+        <!-- end of top-search div-->
+
+        <!-- ============= CONTENT AREA STARTS HERE ============== -->
+        <div id="content" class="clearfix">                        
+        <div class="clearfix post">
+        <form method='POST' action='' align="center">
+        {% csrf_token %}
+		{{form.as_p}}
+		{{form2.as_p}}
+		<input type='submit' class="submit_button readmore" value="Sign Up" style="margin:2%;" >
+
+		</form>                   	    
+        </div>
+        </div>
+        </div>
+{% endblock %}
