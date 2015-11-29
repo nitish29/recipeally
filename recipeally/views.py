@@ -1,3 +1,6 @@
+import urllib.request
+import urllib.parse
+import json
 from django.shortcuts import render
 
 # Create your views here.
@@ -110,3 +113,30 @@ def recipe(request):
                 "id_url":recipe_id
             }
     return render(request, "recipe.html",context)
+
+def search_recipe(request):
+
+    #context = RequestContext(request)
+
+    if request.method == 'POST':
+
+        search_context = str(request.POST['search'])
+
+        search_context = search_context.strip()
+        formatted_string = search_context.replace(",", " ")
+        formatted_string = ' '.join(formatted_string.split())
+
+        data = urllib.parse.urlencode({'q': formatted_string, 'wt': 'json', 'indent': 'true'})
+
+        data = data.encode('ascii')
+
+        req = urllib.request.urlopen('http://52.34.128.215:8983/solr/recipeally/select', data)
+        content = req.read()
+
+        reply = json.loads(content.decode())
+
+        print(reply)
+
+
+
+
