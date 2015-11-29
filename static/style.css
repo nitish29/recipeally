@@ -116,7 +116,7 @@ hr { border: none; height: 2px; background: url(images/pet-border.png); }
 #header { width: 980px; margin: 0 auto; position: relative; /*background: url(images/header-image.jpg) right bottom no-repeat;*/ z-index: 752; }
 #header .header-img{ position:absolute; right:0; bottom:-47px; z-index:0;}
 #header .logotext { position: relative; float: left; margin: 20px 0 25px; font-size: 30px; font-weight: bold; }
-#header .logo { /* position: absolute; top: 18px; left: 0; */ margin: 18px 0 15px; float: left; }
+#header .logo { /* position: absolute; top: 18px; left: 0; */ margin: 0px 0 0px; float: left; }
 #nav-wrap { height: 42px; width: 100%; position: relative; clear: both; background: url(images/nav-bg.png) repeat-x; z-index: 760; }
 #nav-wrap .responsive-nav{display: none;}
 #nav-wrap .inn-nav { width: 980px; margin: 0 auto; }
