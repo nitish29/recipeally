@@ -1,22 +1,49 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
-        <title>Rango</title>
-    </head>
+{% extends 'base.html' %}
 
-    <body>
-        <h1>Login to Rango</h1>
+{% block title %}Login{% endblock %}
 
-        <form id="login_form" method="post" action="">
+{% block body_block %}
+<div class="main-wrap">
+    <div id="container">
+        <!-- WEBSITE SEARCH STARTS HERE -->
+        
+        <div class="top-search  clearfix">
+            <h3 class="head-pet"><span>Recipe Search</span></h3>
+                            <form action="http://inspirythemesdemo.com/alt-foodrecipes" id="searchform">
+                    <p>
+                        <input type="text" name="s" id="s" class="field" value="" placeholder="Search for" />
+                        <input type="submit" name="s_submit" id="s-submit" value="" />
+                    </p>
+                </form>
+                <p class="statement"><span class="fireRed">Recipe Types:</span>
+                                                <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/cheese-2/">Cheese</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chicken-2/">Chicken</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chocolate/">Chocolate</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/pizzas/">Pizzas</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/potatos/">Potatos</a>
+                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/rools/">Rolls</a>
+                                            </p>
+            
+
+
+        </div>
+        <!-- end of top-search div-->
+
+        <!-- ============= CONTENT AREA STARTS HERE ============== -->
+        <div id="content" class="clearfix">                        
+        <div class="clearfix post">
+                               
+        <form id="login_form" method="post" action="" align="center" style="margin:2%;">
             {% csrf_token %}
             Username: <input type="text" name="username" value="" size="50" />
             <br />
             Password: <input type="password" name="password" value="" size="50" />
             <br />
 
-            <input type="submit" value="submit" />
+            <input type="submit" class="submit_button readmore" value="submit" style="margin:2%;" />
         </form>
-
-    </body>
-</html>
+        </div>
+        </div>
+        </div>
+{% endblock %}
+    

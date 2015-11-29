@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models.signals import post_save
 from .forms import PostForm
-
+from recipesearch.models import User,UserProfile
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import logout
@@ -57,7 +57,7 @@ def comment(request):
 def user_login(request):
     # Like before, obtain the context for the user's request.
     context = RequestContext(request)
-
+    
     # If the request is a HTTP POST, try to pull out the relevant information.
     if request.method == 'POST':
         # Gather the username and password provided by the user.

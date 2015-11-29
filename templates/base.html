@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>RecipeAlly</title>
+        {% load staticfiles %}
+		<link rel='stylesheet' href='{% static "style.css" %}' type='text/css' />
+
+    </head>
+
+    <body>
+    
+
+    
+
+
+<!-- ============= HEADER STARTS HERE ============== -->
+<div id="header-wrapper" class="clearfix">
+	<div id="header" class="clearfix">
+		<!-- WEBSITE LOGO -->
+					<a class="responsive_logo" href="http://inspirythemesdemo.com/alt-foodrecipes"><img src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/12/logo1.png" alt="" class="logo" /></a>
+			<img class="header-img" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/themes/inspirythemes-food-recipes/images/header-image.png" height="117" width="463" alt="Food Recipes" />
+				
+	</div><!-- end of header div -->
+
+	<span class="w-pet-border"></span>
+
+	<!-- NAVIGATION BAR STARTS HERE -->
+	<div id="nav-wrap">
+		<div class="inn-nav clearfix">
+
+			<!-- MAIN NAVIGATION STARTS HERE -->
+			<ul id="menu-main-navigation" class="nav"><li id="menu-item-865" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11 current_page_item menu-item-865"><a href="http://inspirythemesdemo.com/alt-foodrecipes/">Home</a></li>
+			 {% if user.is_authenticated %}
+			 <li id="menu-item-902" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-902"><a href="#">My Profile</a>
+			</li>
+			<li id="menu-item-874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-874"><a href="/logout/">Logout</a>
+			</li>
+            {% else %}
+            <li id="menu-item-866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-866"><a href="/login/">Login</a></li>
+            <li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="/registration/">Register</a></li>
+            {% endif %}
+
+
+
+
+
+
+</ul>			<!-- MAIN NAVIGATION ENDS HERE -->
+
+
+			<!-- SOCIAL NAVIGATION -->
+			<ul id="menu-social-menu" class="social-nav"><li id="menu-item-517" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-517"><a href="#">Facebook</a></li>
+<li id="menu-item-518" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-518"><a href="#">Twitter</a></li>
+<li id="menu-item-519" class="rss menu-item menu-item-type-custom menu-item-object-custom menu-item-519"><a href="#">RSS</a></li>
+<li id="menu-item-864" class="flickr menu-item menu-item-type-custom menu-item-object-custom menu-item-864"><a href="#">Flickr</a></li>
+</ul>		</div>
+	</div><!-- end of nav-wrap -->
+	<!-- NAVIGATION BAR ENDS HERE -->
+
+</div><!-- end of header-wrapper div -->
+
+<!-- ============= HEADER ENDS HERE ============== -->
+
+
+
+		<div>
+            <ul>
+           
+            </ul>
+        </div>
+        <div>
+            {% block body_block %}{% endblock %}
+        </div>
+
+
+<!--  Bottom area starts here -->
+	    <div id="bottom-wrap">
+		    	<ul id="bottom" class="clearfix">
+
+								            <li class="about">
+                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes"><img src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/12/footer-logo1.png" alt="Food Recipes" class="footer-logo" /></a>
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum....</p>
+                                    <a href="#" class="readmore">Read more About Us</a>
+                            </li>
+
+                                		<li id="recent_recipe_footer_widget-2" class="Recent_Recipe_Footer_Widget"><h2 class="w-bot-border"><span>Recent</span> Recipes</h2>
+						<ul class="recent-posts nostylewt">                    <li class="clearfix">
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/7a0a46455c4ec56a5a02c097374fc5131-63x53.jpg" class="attachment-most-rated-thumb wp-post-image" alt="7a0a46455c4ec56a5a02c097374fc513" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/chocolate-earl-grey-pots-de-creme-recipe/">Chocolate Earl Grey Pots de...</a></h5>
+                        <p>2 cups cream 120 grams dark chocolate, chopped 2 bags...</p>
+                    </li>
+                                    <li class="clearfix">
+                                                    <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/" class="img-box"><img width="63" height="53" src="http://inspirythemesdemo.com/alt-foodrecipes/wp-content/uploads/2012/03/Pesto-Pizza-with-Roasted-Garlic-Potato21-63x53.jpg" class="attachment-most-rated-thumb wp-post-image" alt="Pesto-Pizza-with-Roasted-Garlic-Potato2" /></a>
+                                                <h5><a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/pesto-pizza-with-roasted-garlic-potato/">Pesto Pizza With Roasted Garlic...</a></h5>
+                        <p>Mention potatoes on pizza and you’ll get one of two...</p>
+                    </li>
+                </ul></li>                        		<li id="twitter_footer_widget-2" class="Twitter_Footer_Widget"><h2 class="w-bot-border"><span>Twitter</span> Feed</h2><div id="twitter_update_list" class="widget nostylewt"><ul><li class="twitter-item">RT <a href="http://twitter.com/EnvatoMarket" class="twitter-user">@EnvatoMarket</a>: It's not Monday yet, but who cares? Get our Cyber Monday Bundle now - 80+ items for $39! <a href="https://t.co/dfIqM2ZxDs" class="twitter-link">https://t.co/dfIqM2ZxDs</a> https://&acirc;&#128;&brvbar;<br><span class="twitter-timestamp">27th Nov 2015</span></li></ul></div></li>
+
+				</ul><!-- end of bottom div -->
+	    </div><!-- end of bottom-wrap div -->
+<!-- Bottom area ends here -->
+
+
+<!-- Footer starts here -->
+
+        <div id="footer-wrap">
+				<div id="footer">
+											<p class="copyright">Copyright © 2015. Food Recipes - A Premium Wordpress Theme</p>
+						<p class="dnd">Developed by <a href="http://inspirythemes.com/" target="_blank">InspityThemes</a></p>
+									</div><!-- end of footer div -->
+		</div><!-- end of footer-wrapper div -->
+
+<!-- Footer ends here -->
+
+</body>
+</html>
