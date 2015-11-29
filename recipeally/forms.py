@@ -15,13 +15,13 @@ class SignUpForm(forms.ModelForm):
 		super(SignUpForm, self).__init__(*args, **kwargs)
 		for fieldname in ['username']:
 			self.fields[fieldname].help_text = None
-	def clean_email(self):
-		email=self.cleaned_data.get('email')
-		email_base,provider=email.split("@")
-		domain,extension=provider.split('.')
-		if not extension == "edu":
-			raise forms.ValidationError("Use edu address")
-		return email
+	# def clean_email(self):
+	# 	email=self.cleaned_data.get('email')
+	# 	email_base,provider=email.split("@")
+	# 	domain,extension=provider.split('.')
+	# 	if not extension == "edu":
+	# 		raise forms.ValidationError("Use edu address")
+	# 	return email
 
 class ProfileForm(forms.ModelForm):
 	class Meta:
