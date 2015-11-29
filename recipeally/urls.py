@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^logout/$', 'recipeally.views.user_logout', name='logout'),
     url(r'^comments/', 'recipeally.views.comment', name='comment'),
 	url(r'^recipe$', 'recipeally.views.recipe', name='recipe'),
-	url(r'^search$', 'recipeally.views.recipe_search', name='search'),
+	url(r'^search$', 'recipeally.views.search_recipe', name='search'),
     #url('^', include('django.contrib.auth.urls')),
     #url(r'^login/$', 'django.contrib.auth.views.login'),
     #url(r'^logout/$', 'django.contrib.auth.views.logout'),
