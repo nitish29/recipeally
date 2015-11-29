@@ -1,6 +1,9 @@
 #This is a sample local settings file
 
-from recipeally.settings import *
+
+DEBUG = False
+
+ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
