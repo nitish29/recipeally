@@ -438,7 +438,7 @@ hr { border: none; height: 2px; background: url(images/pet-border.png); }
 #left-area blockquote.rightalign { float: right; margin: 0 0 0 20px; }
 #left-area blockquote.centeralign { float: none; display: block; margin: 20px auto; }
 #left-area blockquote.noalign { float: none; display: block; margin: 20px auto; width: 93% !important; }
-
+.columns .one-third { width: 31.33%; margin: 0 0 10px 2%;S }
 #left-area table {
 	width:90%;
 	border-top:1px solid #e5eff8;
