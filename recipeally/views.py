@@ -45,17 +45,32 @@ def registration(request):
 	return render(request, "registration.html",context)
 
 
-def comment(request):
+def recipe(request):
     form=PostForm(request.POST or None)
     context={
-    "form": form
+        "form": form
     }
+
     if form.is_valid():
         instance=form.save(commit=False)
-        instance.recipe_id=1
-        instance.user_id=1
         instance.save()
-    return render(request,"comments.html",context)
+    
+        context={
+                        "title": "Thank you for your comment"
+            }
+    return render(request, "recipe.html",context)
+
+# def comment(request):
+#     form=PostForm(request.POST or None)
+#     context={
+#     "form": form
+#     }
+#     if form.is_valid():
+#         instance=form.save(commit=False)
+#         instance.recipe_id=1
+#         instance.user_id=1
+#         instance.save()
+#     return render(request,"comments.html",context)
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
