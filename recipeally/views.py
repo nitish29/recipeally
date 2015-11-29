@@ -104,9 +104,7 @@ def user_logout(request):
 
     # Display a particular recipe.
 def recipe(request):
-    recipe_id = request.GET.get('id')
-    print (recipe_id)
     context={
-                "id_url":recipe_id
+                "title":"Welcome"
             }
     return render(request, "recipe.html",context)
