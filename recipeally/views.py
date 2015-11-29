@@ -109,8 +109,17 @@ def user_logout(request):
 
     # Display a particular recipe.
 def recipe(request):
+    #f = open(D:/dummy_tweets_future_use/Tweets_iphone6s_reviews_40_english_16092015.json)
+    #str = []
+    #str = '[{"created_at": "2015-09-16T22:18:25Z", "id": "644274166506479616", "lang_en": "en", "text_en": "Apple iPhone 6s Plus vs. Samsung Galaxy Note 5 Specs, Review: 2 of the Latest ... - Latin Post http://t.co/4iamYbC0P6 #GalaxyNote4", "twitter_hashtags": ["GalaxyNote4"], "twitter_urls": ["note5cases.com", "http://www.note5cases.com", "http://t.co/XoAY430Gux"]},{"created_at": "2015-09-16T22:18:25Z", "id": "644274163398500352", "lang_en": "en", "text_en": "Apple iPhone 6s Plus vs. Samsung Galaxy Note 5 Specs, Review: 2 of the Latest ... - Latin Post http://t.co/VQ0TyZfcF9 #GalaxyNote4", "twitter_hashtags": ["GalaxyNote4"], "twitter_urls": ["note4cases.com", "http://www.note4cases.com", "http://t.co/5QYCbO1e8Q"]}]'
+    str =  [{"image": "http://images.media-allrecipes.com/userphotos/250x250/00/96/08/960892.jpg","source": "allrecipes","url": "http://allrecipes.com/Recipe/Garlic-Butter/Detail.aspx","description": "\"Sometimes the basics are the best!  I've used this simple recipe for years to make garlic bread, and any leftovers go great on barbequed steaks, pasta, rice or potatoes. You can use any butter or margarine you like. Also, fresh or minced garlic in a jar works well. Adjust the amount of garlic to your taste.\"","id": "516c3d7996cc62548fd2b14a","name": "Garlic Butter","_version_": 1519165045568700416,"prepTime": "PT10M","ingredients": "1 cup butter, softened 1 tablespoon minced garlic 1/4 cup grated Parmesan cheese 1 tablespoon garlic salt 1 teaspoon Italian seasoning 1/2 teaspoon ground black pepper 1/4 teaspoon ground paprika","recipeYield": "1 cup"}, {"image": "http://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/prawnswithgarlicbutt_86031_16x9.jpg","source": "bbcfood","url": "http://www.bbc.co.uk/food/recipes/prawnswithgarlicbutt_86031","description": "This simple recipe for prawns in a garlicky sauce makes a delicious addition to a tapas spread - just add lots of crusty bread.","id": "51607c0c96cc6208c179367c","name": "Prawns with garlic butter","recipeYield": "Serves 2-3","_version_": 1519165023563284480,"prepTime": "PT30M","ingredients": "1 tbsp olive oil 50g/2oz butter 12 large raw prawns 2 garlic salt and freshly ground black pepper small handful parsley","cookTime": "PT10M"}]
+    
+    #a = []
+    #a = json.loads(str)
+    #for x in a:
+        #str1 = x["id"]
     context={
-                "title":"Welcome"
+                "recipe_list": str
             }
     return render(request, "recipe.html",context)
 
