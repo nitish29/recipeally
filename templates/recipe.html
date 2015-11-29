@@ -61,8 +61,10 @@
             {% endfor %}
             {% for key, value in a.items %}
             {% if key == "url" %}
-            <span class="type"><a href="https://www.facebook.com/sharer/sharer.php?u=52.33.209.172" target="_blank">FB Share
-            </a></span>
+            <span class="type">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{value}}" target="_blank"><img src="../static/images/social-facebook.png"/></a>
+            <a href="https://twitter.com/home?status=Love%20this%20recipe!%20Check%20it%20out {{value}} ! For%20more%20amazing%20recipes%20try%20http%3A%2F%2F52.33.209.172" target="_blank"><img src="../static/images/social-twitter.png"/></a>
+            </span>
 			<span class="type"><a href={{value}} class="readmore">Read More</a></span>
             {% endif %}
             {% endfor %}
