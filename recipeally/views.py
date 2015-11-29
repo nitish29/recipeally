@@ -59,7 +59,7 @@ def comment(request):
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
-    context = RequestContext(request)
+    context = RequestContext(request,{'errormessage':''})
     
     # If the request is a HTTP POST, try to pull out the relevant information.
     if request.method == 'POST':
@@ -88,7 +88,9 @@ def user_login(request):
         else:
             # Bad login details were provided. So we can't log the user in.
             #print "Invalid login details: {0}, {1}".format(username, password)
-            return HttpResponse("Invalid login details supplied.")
+            #return HttpResponse("Invalid login details supplied.")
+            context = RequestContext(request,{'errormessage':'Invalid login details supplied.'})
+            return render_to_response('login.html', {}, context)
 
     # The request is not a HTTP POST, so display the login form.
     # This scenario would most likely be a HTTP GET.
@@ -107,10 +109,8 @@ def user_logout(request):
 
     # Display a particular recipe.
 def recipe(request):
-    recipe_id = request.GET.get('id')
-    print (recipe_id)
     context={
-                "id_url":recipe_id
+                "title":"Welcome"
             }
     return render(request, "recipe.html",context)
 
