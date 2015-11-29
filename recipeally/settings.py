@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'emk^&b#t%ts7gdn7*0)yi!bkfr1#1d3qr!h8@r@rmk039ytp8%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['52.33.209.172']
 
 
 # Application definition
@@ -117,7 +117,7 @@ STATICFILES_DIRS=(
     os.path.join(BASE_DIR,"static/recipeally"),
 )
 
-# try:
-#     from local_settings import *
-# except ImportError:
-#     pass
+try:
+    from .local_settings import *
+except ImportError:
+    pass
