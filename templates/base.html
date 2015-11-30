@@ -1,132 +1,112 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <title>RecipeAlly</title>
-        {% load staticfiles %}
-		<link rel='stylesheet' href='{% static "style.css" %}' type='text/css' />
 
-    </head>
+<head>
+    <title>RecipeAlly</title>
+    {% load staticfiles %}
+    <link rel='stylesheet' href='{% static "style.css" %}' type='text/css' />
+</head>
 
-    <body>
-    
-
-    
-
-
-<!-- ============= HEADER STARTS HERE ============== -->
-<div id="header-wrapper" class="clearfix">
-	<div id="header" class="clearfix">
-		<!-- WEBSITE LOGO -->
-					<a class="responsive_logo" href="/"><img src="/static/images/RecipeAllyLogo.png" alt="" class="logo" /></a>
-			<img class="header-img" src="/static/images/header-image.png" height="117" width="463" alt="Food Recipes" />
-				
-	</div><!-- end of header div -->
-
-	<span class="w-pet-border"></span>
-
-	<!-- NAVIGATION BAR STARTS HERE -->
-	<div id="nav-wrap">
-		<div class="inn-nav clearfix">
-
-			<!-- MAIN NAVIGATION STARTS HERE -->
-			<ul id="menu-main-navigation" class="nav"><li id="menu-item-865" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11 current_page_item menu-item-865"><a href="/">Home</a></li>
-			 {% if user.is_authenticated %}
-			 <li id="menu-item-902" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-902"><a href="#">My Profile</a>
-			</li>
-			<li id="menu-item-874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-874"><a href="/logout/">Logout</a>
-			</li>
-            {% else %}
-            <li id="menu-item-866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-866"><a href="/login/">Login</a></li>
-            <li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="/registration/">Register</a></li>
-            {% endif %}
-
-
-
-
-
-
-</ul>			<!-- MAIN NAVIGATION ENDS HERE -->
-
-
-			<!-- SOCIAL NAVIGATION -->
-			<ul id="menu-social-menu" class="social-nav"><li id="menu-item-517" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-517"><a href="https://www.facebook.com/sharer/sharer.php?u=52.33.209.172" target="_blank">Facebook</a></li>
-<li id="menu-item-518" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-518"><a href="https://twitter.com/home?status=Hungry%3F%20Try%20RecipeAlly%20at%2052.33.209.172" target="_blank">Twitter</a></li>
-
-</ul>		</div>
-	</div><!-- end of nav-wrap -->
-	<!-- NAVIGATION BAR ENDS HERE -->
-
-</div><!-- end of header-wrapper div -->
-
-<!-- ============= HEADER ENDS HERE ============== -->
-<div class="main-wrap">
-    <div id="container">
-        <!-- WEBSITE SEARCH STARTS HERE -->
-        
-        <div class="top-search  clearfix">
-            <h3 class="head-pet"><span>Recipe Search</span></h3>
-                            <form action="/recipe" method="GET" id="searchform">
+<body>
+    <!-- ============= HEADER STARTS HERE ============== -->
+    <div id="header-wrapper" class="clearfix">
+        <div id="header" class="clearfix">
+            <!-- WEBSITE LOGO -->
+            <a class="responsive_logo" href="/"><img src="/static/images/RecipeAllyLogo.png" alt="" class="logo" /></a>
+            <img class="header-img" src="/static/images/header-image.png" height="117" width="463" alt="Food Recipes" />
+        </div>
+        <!-- end of header div -->
+        <span class="w-pet-border"></span>
+        <!-- NAVIGATION BAR STARTS HERE -->
+        <div id="nav-wrap">
+            <div class="inn-nav clearfix">
+                <!-- MAIN NAVIGATION STARTS HERE -->
+                <ul id="menu-main-navigation" class="nav">
+                    <li id="menu-item-865" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-11 current_page_item menu-item-865"><a href="/">Home</a></li>
+                    {% if user.is_authenticated %}
+                    <li id="menu-item-902" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-902"><a href="#">My Profile</a>
+                    </li>
+                    <li id="menu-item-874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-874"><a href="/logout/">Logout</a>
+                    </li>
+                    {% else %}
+                    <li id="menu-item-866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-866"><a href="/login/">Login</a></li>
+                    <li id="menu-item-880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-880"><a href="/registration/">Register</a></li>
+                    {% endif %}
+                </ul>
+                <!-- MAIN NAVIGATION ENDS HERE -->
+                <!-- SOCIAL NAVIGATION -->
+                <ul id="menu-social-menu" class="social-nav">
+                    <li id="menu-item-517" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-517"><a href="https://www.facebook.com/sharer/sharer.php?u=52.33.209.172" target="_blank">Facebook</a></li>
+                    <li id="menu-item-518" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-518"><a href="https://twitter.com/home?status=Hungry%3F%20Try%20RecipeAlly%20at%2052.33.209.172" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- end of nav-wrap -->
+        <!-- NAVIGATION BAR ENDS HERE -->
+    </div>
+    <!-- end of header-wrapper div -->
+    <!-- ============= HEADER ENDS HERE ============== -->
+    <div class="main-wrap">
+        <div id="container">
+            <!-- WEBSITE SEARCH STARTS HERE -->
+            <div class="top-search  clearfix">
+                <h3 class="head-pet"><span>Recipe Search</span></h3>
+                <form action="/recipe" method="GET" id="searchform">
                     <p>
                         <input type="text" name="q" id="s" class="field" value="" placeholder="Search for" />
-                        <input type="submit"/>
+                        <input type="submit" />
                     </p>
                 </form>
-                <p class="statement"><span class="fireRed">Recipe Types:</span>
-                                                <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/cheese-2/">Cheese</a>
-                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chicken-2/">Chicken</a>
-                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/chocolate/">Chocolate</a>
-                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/pizzas/">Pizzas</a>
-                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/potatos/">Potatos</a>
-                            ,                             <a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe-type/rools/">Rolls</a>
-                                            </p>
-            
-
-
+            </div>
+            <!-- end of top-search div-->
+            <div>
+                <ul>
+                </ul>
+            </div>
+            <div>
+                {% block body_block %}{% endblock %}
+            </div>
         </div>
-        <!-- end of top-search div-->
-
-
-		<div>
-            <ul>
-           
-            </ul>
+    </div>
+    <!--  Bottom area starts here -->
+    <div id="bottom-wrap">
+        <ul id="bottom" class="clearfix">
+            <li class="about">
+                <p>The application is an attempt to facilitate the people throughout the world to find a platform to enhance their cooking skills, while also giving them an opportunity to try out multi-cuisine food. It is an e-kitchen that helps share people's taste with others, since, we believe that food binds taste and heart. Therefore, indirectly it is an attempt to connect people.
+                </p>
+            </li>
+            <li id="recent_recipe_footer_widget-2" class="Recent_Recipe_Footer_Widget">
+                <h2 class="w-bot-border"><span>Famous</span> Recipes</h2>
+            </li>
+            <li id="twitter_footer_widget-2" class="Twitter_Footer_Widget"><a class="twitter-timeline" href="https://twitter.com/recipe_ally" data-widget-id="671085730085658624">Tweets by @recipe_ally</a>
+                <script>
+                ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");
+                </script>
+            </li>
+        </ul>
+        <!-- end of bottom div -->
+    </div>
+    <!-- end of bottom-wrap div -->
+    <!-- Bottom area ends here -->
+    <!-- Footer starts here -->
+    <div id="footer-wrap">
+        <div id="footer">
+            <p class="copyright">Copyright © 2015. RecipeAlly</p>
+            <p class="dnd">Developed for CSE542 University at Buffalo</p>
         </div>
-        <div>
-            {% block body_block %}{% endblock %}
-        </div>
-
-</div></div>
-<!--  Bottom area starts here -->
-	    <div id="bottom-wrap">
-		    	<ul id="bottom" class="clearfix">
-
-								            <li class="about">
-                                    
-                                <p>The application is an attempt to facilitate the people throughout the world to find a platform to enhance their cooking skills, while also giving them an opportunity to try out multi-cuisine food. It is an e-kitchen that helps share people's taste with others, since, we believe that food binds taste and heart. Therefore, indirectly it is an attempt to connect people. 
-</p>
-                              
-                            </li>
-
-                                		<li id="recent_recipe_footer_widget-2" class="Recent_Recipe_Footer_Widget"><h2 class="w-bot-border"><span>Famous</span> Recipes</h2>
-						</li>                        		<li id="twitter_footer_widget-2" class="Twitter_Footer_Widget"><a class="twitter-timeline" href="https://twitter.com/recipe_ally" data-widget-id="671085730085658624">Tweets by @recipe_ally</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
-
-				</ul><!-- end of bottom div -->
-	    </div><!-- end of bottom-wrap div -->
-<!-- Bottom area ends here -->
-
-
-<!-- Footer starts here -->
-
-        <div id="footer-wrap">
-				<div id="footer">
-											<p class="copyright">Copyright © 2015. RecipeAlly</p>
-						<p class="dnd">Developed for CSE542 University at Buffalo</p>
-									</div><!-- end of footer div -->
-		</div><!-- end of footer-wrapper div -->
-
-<!-- Footer ends here -->
-
+        <!-- end of footer div -->
+    </div>
+    <!-- end of footer-wrapper div -->
+    <!-- Footer ends here -->
 </body>
+
 </html>
