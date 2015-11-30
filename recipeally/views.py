@@ -124,6 +124,7 @@ def user_logout(request):
     # Take the user back to the homepage.
     return HttpResponseRedirect('/')
 
+
     # Display a particular recipe.
 def recipe(request):
     #f = open(D:/dummy_tweets_future_use/Tweets_iphone6s_reviews_40_english_16092015.json)
@@ -139,56 +140,35 @@ def recipe(request):
             instance.user_id=1
             instance.recipe_str="3847"
             instance.save()
-    
-    str =  [{"image": "http://images.media-allrecipes.com/userphotos/250x250/00/96/08/960892.jpg","source": "allrecipes","url": "http://allrecipes.com/Recipe/Garlic-Butter/Detail.aspx","description": "\"Sometimes the basics are the best!  I've used this simple recipe for years to make garlic bread, and any leftovers go great on barbequed steaks, pasta, rice or potatoes. You can use any butter or margarine you like. Also, fresh or minced garlic in a jar works well. Adjust the amount of garlic to your taste.\"","id": "516c3d7996cc62548fd2b14a","name": "Garlic Butter","_version_": 1519165045568700416,"prepTime": "PT10M","ingredients": "1 cup butter, softened 1 tablespoon minced garlic 1/4 cup grated Parmesan cheese 1 tablespoon garlic salt 1 teaspoon Italian seasoning 1/2 teaspoon ground black pepper 1/4 teaspoon ground paprika","recipeYield": "1 cup"}, {"image": "http://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/prawnswithgarlicbutt_86031_16x9.jpg","source": "bbcfood","url": "http://www.bbc.co.uk/food/recipes/prawnswithgarlicbutt_86031","description": "This simple recipe for prawns in a garlicky sauce makes a delicious addition to a tapas spread - just add lots of crusty bread.","id": "51607c0c96cc6208c179367c","name": "Prawns with garlic butter","recipeYield": "Serves 2-3","_version_": 1519165023563284480,"prepTime": "PT30M","ingredients": "1 tbsp olive oil 50g/2oz butter 12 large raw prawns 2 garlic salt and freshly ground black pepper small handful parsley","cookTime": "PT10M"}]
-    
-    #a = []
-    #a = json.loads(str)
-    #for x in a:
-        #str1 = x["id"]
-    context={
-                "recipe_list": str,
+            context={   
                 "form3": form3
+                }
+    
+    # if request.method == 'GET':
+
+    search_context = request.GET['q']
+
+    search_context = search_context.strip()
+    formatted_string = search_context.replace(",", " ")
+    formatted_string = ' '.join(formatted_string.split())
+
+    data = urllib.parse.urlencode({'q': formatted_string, 'wt': 'json', 'indent': 'true'})
+
+    data = data.encode('utf-8')
+
+    req = urllib.request.urlopen('http://52.34.128.215:8983/solr/recipeally/select', data)
+    
+    content = req.read()
+
+    reply = json.loads(content.decode())
+    
+    reply_response = reply["response"]
+    list_recipe = reply_response["docs"]
+    context={
+            "recipe_list": list_recipe,
+            "form3": form3
             }
     return render(request, "recipe.html",context)
-
-def recipe_tes(request):
-
-    #context = RequestContext(request)
-
-    pdb.set_trace()
-
-    if request.method == 'GET':
-
-        search_context = request.GET['q']
-
-        search_context = search_context.strip()
-        formatted_string = search_context.replace(",", " ")
-        formatted_string = ' '.join(formatted_string.split())
-
-        data = urllib.parse.urlencode({'q': formatted_string, 'wt': 'json', 'indent': 'true'})
-
-        data = data.encode('utf-8')
-
-        req = urllib.request.urlopen('http://52.34.128.215:8983/solr/recipeally/select', data)
-        
-        content = req.read()
-
-        # reply = json.loads(content)
-
-        reply = json.loads(content.decode())
-        #print(reply)
-
-        #final_reply = json.dumps(reply)
-
-        for data in reply:
-        # now song is a dictionary
-            for attribute, value in data.iteritems():
-                print(attribute)
-                print (value) # example usage
-
-        #print(final_reply)
-
 
 
 
