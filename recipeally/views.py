@@ -2,7 +2,7 @@ import urllib.request
 import urllib.parse
 import json
 from django.shortcuts import render
-
+import pdb
 # Create your views here.
 from .forms import SignUpForm
 from .forms import ProfileForm
@@ -125,7 +125,7 @@ def user_logout(request):
     return HttpResponseRedirect('/')
 
     # Display a particular recipe.
-def recipe(request):
+def recipe2(request):
     #f = open(D:/dummy_tweets_future_use/Tweets_iphone6s_reviews_40_english_16092015.json)
     #str = []
     #str = '[{"created_at": "2015-09-16T22:18:25Z", "id": "644274166506479616", "lang_en": "en", "text_en": "Apple iPhone 6s Plus vs. Samsung Galaxy Note 5 Specs, Review: 2 of the Latest ... - Latin Post http://t.co/4iamYbC0P6 #GalaxyNote4", "twitter_hashtags": ["GalaxyNote4"], "twitter_urls": ["note5cases.com", "http://www.note5cases.com", "http://t.co/XoAY430Gux"]},{"created_at": "2015-09-16T22:18:25Z", "id": "644274163398500352", "lang_en": "en", "text_en": "Apple iPhone 6s Plus vs. Samsung Galaxy Note 5 Specs, Review: 2 of the Latest ... - Latin Post http://t.co/VQ0TyZfcF9 #GalaxyNote4", "twitter_hashtags": ["GalaxyNote4"], "twitter_urls": ["note4cases.com", "http://www.note4cases.com", "http://t.co/5QYCbO1e8Q"]}]'
@@ -140,14 +140,15 @@ def recipe(request):
             }
     return render(request, "recipe.html",context)
 
-def search_recipe(request):
+def recipe(request):
 
     #context = RequestContext(request)
 
+    pdb.set_trace()
+
     if request.method == 'GET':
 
-        #search_context = str(request.POST['search'])
-        search_context = "garlic butter"
+        search_context = request.GET['q']
 
         search_context = search_context.strip()
         formatted_string = search_context.replace(",", " ")
@@ -161,12 +162,20 @@ def search_recipe(request):
         
         content = req.read()
 
+        # reply = json.loads(content)
+
         reply = json.loads(content.decode())
+        #print(reply)
 
-        final_reply = json.dumps(reply)
+        #final_reply = json.dumps(reply)
 
+        for data in reply:
+        # now song is a dictionary
+            for attribute, value in data.iteritems():
+                print(attribute)
+                print (value) # example usage
 
-        print(final_reply)
+        #print(final_reply)
 
 
 
