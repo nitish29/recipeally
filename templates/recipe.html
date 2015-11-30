@@ -73,12 +73,11 @@
         <!--<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="readmore">Read more</a>-->
     </div>
     <div style="width:33%;float:left;">
-      <form method='post'>
+      <form method='post' action="">
       {% csrf_token %}
         Comment:<br />
-        <textarea name='comments' id='comments'></textarea><br />
+        {{form3.as_ul}}
 
-        <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
 
         <input type='submit' value='Comment' />
   
