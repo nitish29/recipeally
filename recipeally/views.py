@@ -103,13 +103,16 @@ def recipe(request):
     
     if request.method == "POST":
         
-
+        recipe_id = request.POST["id"]
+        
         if form3.is_valid():
-            print("*********")
             instance=form3.save(commit=False)
             instance.user_id=1
-            instance.recipe_str="3847"
+            instance.recipe_str=recipe_id
             instance.save()
+
+            form3 = PostForm()            
+
             context={   
                 "form3": form3
                 }
@@ -132,6 +135,7 @@ def recipe(request):
     
     reply_response = reply["response"]
     list_recipe = reply_response["docs"]
+        
     context={
             "recipe_list": list_recipe,
             "form3": form3

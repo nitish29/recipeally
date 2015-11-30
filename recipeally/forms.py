@@ -38,3 +38,4 @@ class PostForm(forms.ModelForm):
 	class Meta:
 		model=Comments
 		fields=['comment_text']
+	# comment_text = forms.CharField(required=false, default=null)
