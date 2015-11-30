@@ -53,6 +53,8 @@ def recipe(request):
 
     if form.is_valid():
         instance=form.save(commit=False)
+        instance.user_id=1
+        instance.recipe_str="3847"
         instance.save()
     
         context={
