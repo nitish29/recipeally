@@ -45,35 +45,6 @@ def registration(request):
 	return render(request, "registration.html",context)
 
 
-def recipe_adhip(request):
-    form=PostForm(request.POST or None)
-    context={
-        "form": form
-    }
-
-    if form.is_valid():
-        instance=form.save(commit=False)
-        instance.user_id=1
-        instance.recipe_str="3847"
-        instance.save()
-    
-        context={
-                        "title": "Thank you for your comment"
-            }
-    return render(request, "recipe.html",context)
-
-# def comment(request):
-#     form=PostForm(request.POST or None)
-#     context={
-#     "form": form
-#     }
-#     if form.is_valid():
-#         instance=form.save(commit=False)
-#         instance.recipe_id=1
-#         instance.user_id=1
-#         instance.save()
-#     return render(request,"comments.html",context)
-
 def user_login(request):
     # Like before, obtain the context for the user's request.
     context = RequestContext(request,{'errormessage':''})
@@ -125,12 +96,11 @@ def user_logout(request):
     return HttpResponseRedirect('/')
 
 
-    # Display a particular recipe.
+# Display a particular recipe.
 def recipe(request):
-    #f = open(D:/dummy_tweets_future_use/Tweets_iphone6s_reviews_40_english_16092015.json)
-    #str = []
-    #str = '[{"created_at": "2015-09-16T22:18:25Z", "id": "644274166506479616", "lang_en": "en", "text_en": "Apple iPhone 6s Plus vs. Samsung Galaxy Note 5 Specs, Review: 2 of the Latest ... - Latin Post http://t.co/4iamYbC0P6 #GalaxyNote4", "twitter_hashtags": ["GalaxyNote4"], "twitter_urls": ["note5cases.com", "http://www.note5cases.com", "http://t.co/XoAY430Gux"]},{"created_at": "2015-09-16T22:18:25Z", "id": "644274163398500352", "lang_en": "en", "text_en": "Apple iPhone 6s Plus vs. Samsung Galaxy Note 5 Specs, Review: 2 of the Latest ... - Latin Post http://t.co/VQ0TyZfcF9 #GalaxyNote4", "twitter_hashtags": ["GalaxyNote4"], "twitter_urls": ["note4cases.com", "http://www.note4cases.com", "http://t.co/5QYCbO1e8Q"]}]'
+    
     form3=PostForm(request.POST or None)
+    
     if request.method == "POST":
         
 
@@ -143,8 +113,6 @@ def recipe(request):
             context={   
                 "form3": form3
                 }
-    
-    # if request.method == 'GET':
 
     search_context = request.GET['q']
 
