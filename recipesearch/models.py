@@ -9,7 +9,7 @@ class Ingredients(models.Model):
 class Recipes(models.Model):
 	recipe_text = models.TextField()
 	recipe_name = models.CharField(max_length=100)
-	recipe_cuisine = models.CharField(max_length=50)
+	recipe_cuisine = models.CharField(max_length=50, null=True)
 
 	RECIPE_TYPE = (
 			(0, 'Not-Specified'),
@@ -20,12 +20,9 @@ class Recipes(models.Model):
 			(5, 'Dessert'),
 		)
 
-	recipe_type = models.IntegerField(default=0, choices=RECIPE_TYPE)
-	recipe_picture = models.CharField(max_length=200)
-	recipe_calories = models.IntegerField(null=True)
-	recipe_prepration_time = models.IntegerField(default=0)
-	recipe_serve_people = models.IntegerField(default=0)
-	recipe_source = models.CharField(max_length=500)
+	recipe_type = models.IntegerField(default=0, choices=RECIPE_TYPE, null=True)
+	recipe_prepration_time = models.IntegerField(default=0, null=True)
+	recipe_serve_people = models.IntegerField(default=0, null=True)
 	user = models.ForeignKey(User)
 	ingredient = models.ManyToManyField(Ingredients)
 
@@ -34,7 +31,7 @@ class Recipes(models.Model):
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
-	user_about = models.CharField(max_length=200)
+	user_about = models.CharField(max_length=200, null=True)
 
 class Comments(models.Model):
 	comment_text = models.CharField(max_length=200)
@@ -48,8 +45,8 @@ class Comments(models.Model):
 			(5,5),
 		)
 
-	comment_rating = models.IntegerField(default=0, choices=RATING)
-	recipe = models.ForeignKey(Recipes)
+	comment_rating = models.IntegerField(default=0, choices=RATING, null=True)
+	recipe_str = models.CharField(default="0",max_length=200)
 	user = models.ForeignKey(User)
 	date_added = models.DateTimeField(auto_now_add=True, editable=False, null=True)
 
