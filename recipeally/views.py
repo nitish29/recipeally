@@ -125,7 +125,7 @@ def user_logout(request):
 
 
 # Display a list of recipes.
-def recipe(request):
+def recipeForIntegration(request):
 
     #context = RequestContext(request)
 
