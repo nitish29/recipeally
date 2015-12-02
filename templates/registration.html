@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<h1>{{title}}</h1>
+
+
+
+
+
+{% block title %}Login{% endblock %}
+
+{% block body_block %}
+
+
+        <!-- ============= CONTENT AREA STARTS HERE ============== -->
+        <div id="content" class="clearfix">                        
+        <div class="clearfix post">
+        <form method='POST' action='' align="center">
+        {% csrf_token %}
+		{{form.as_ul}}
+		{{form2.as_ul}}
+		<input type='submit' class="submit_button readmore" value="Sign Up" style="margin:2%;" >
+
+		</form>                   	    
+        </div>
+        </div>
+{% endblock %}

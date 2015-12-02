@@ -1,13 +1,16 @@
 #This is a sample local settings file
 
-from recipeally.settings import *
+
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'recipeally',
-        'USER': 'nitish',
-        'PASSWORD': '',
+        'USER': 'postgres',
+        'PASSWORD': 'fuckubaby',
         'HOST': 'localhost',
         'PORT': '',
     }

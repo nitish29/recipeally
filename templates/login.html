@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body_block %}
+
+
+        <!-- ============= CONTENT AREA STARTS HERE ============== -->
+        <div id="content" class="clearfix">                        
+        <div class="clearfix post">
+                               
+        <form id="login_form" method="post" action="" align="center" style="margin:2%;">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+            {{errormessage}}
+            <input type="submit" class="submit_button readmore" value="submit" style="margin:2%;" />
+        </form>
+        </div>
+{% endblock %}
+    

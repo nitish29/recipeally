@@ -1,0 +1,29 @@
+Instructions to setup solr on server
+put the files provided in home directory of server
+
+
+1) Use the following commands:
+
+mkdir solr
+cd solr
+curl -O http://apache.mirrors.lucidnetworks.net/lucene/solr/5.3.0/solr-5.3.0.tgz
+tar xf solr-5.3.0.tgz
+cd solr-5.3.0
+bin/solr start -e cloud -nomprompt
+
+2) Now after solr has been installed use the following commands
+
+bin/solr stop -all
+bin/solr delete -c recipeally
+bin/solr restart
+mkdir recipeally
+cd recipeally
+mkdir solr
+cp ~/solr.xml ./solr/
+cd ..
+bin/solr start -s recipeally/solr
+cd booksdemo
+cp ~/solrconfig.xml ./solr/recipeally/conf/solrconfig.xml
+cp ~/schema.xml ./solr/recipeally/conf/schema.xml
+~/solr/solr-5.3.0/bin/solr stop -all   
+~/solr/solr-5.3.0/bin/solr start -s ~/solr/solr-5.3.0/recipeally/solr

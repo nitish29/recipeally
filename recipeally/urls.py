@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'recipesearch.views.home', name='home'),
+    url(r'^registration/', 'recipeally.views.registration', name='registration'),
+    url(r'^login/$', 'recipeally.views.user_login', name='login'),
+    url(r'^logout/$', 'recipeally.views.user_logout', name='logout'),
+    # url(r'^comments/', 'recipeally.views.comment', name='comment'),
+    url(r'^recipe$', 'recipeally.views.recipe', name='recipe'),
+    #url(r'^search$', 'recipeally.views.search_recipe', name='search'),
     #url('^', include('django.contrib.auth.urls')),
     #url(r'^login/$', 'django.contrib.auth.views.login'),
     #url(r'^logout/$', 'django.contrib.auth.views.logout'),
