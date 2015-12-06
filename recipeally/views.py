@@ -12,7 +12,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models.signals import post_save
 from .forms import PostForm
-from recipesearch.models import User, UserProfile
+from recipesearch.models import User, UserProfile, Comments
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import logout
@@ -148,3 +148,14 @@ def recipe(request):
         "form3": form3
     }
     return render(request, "recipe.html", context)
+
+def returnCommentsData(list_recipe):
+    pdb.set_trace()
+    for recipe in list_recipe:
+        comment_id = recipe['id']
+        comments = Comments.objects.all().filter(recipe_str = comment_id)
+        if comments is not None:
+            print(comments)
+
+
+

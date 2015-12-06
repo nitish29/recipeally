@@ -1,106 +1,52 @@
 {% extends 'base.html' %}
-<h1>{{title}}</h1>
-
-
-
-  {% for a in recipe_list %}
-  {% for key, value in a.items %}
-  {% if key == "text_en" %}
-  {{ key }} : {{ value }}
-  {% endif %}
-  <br>
-  {% endfor %}
-{% endfor %}
-
-
-
-
-{% block title %}Login{% endblock %}
-
-{% block body_block %}
+<h1>{{title}}</h1> {% for a in recipe_list %} {% for key, value in a.items %} {% if key == "text_en" %} {{ key }} : {{ value }} {% endif %}
+<br> {% endfor %} {% endfor %} {% block title %}Login{% endblock %} {% block body_block %}
 <div class="main-wrap">
     <div id="container">
         <!-- WEBSITE SEARCH STARTS HERE -->
         <!-- end of top-search div-->
-		
-				<div id="content" class="clearfix "><div id="left-area" >
+        <div id="content" class="clearfix ">
+            <div id="left-area">
                 {% for a in recipe_list %}
-                
-   <p>
-          </p>
-    <span class="w-pet-border"></span>    
-    <div class="recipe-listing-item clearfix post-17 recipe type-recipe status-publish has-post-thumbnail hentry tag-cheese tag-goat recipe_type-cheese-2 recipe_type-potatos recipe_type-rools cuisine-indian course-snack ingredient-black-pepper ingredient-butter ingredient-cheese skill_level-intermediate" id="post-17" style="width:33%;float:left;">
-
-            
-       
-        <div class="recipe-tags">
-        {% for key, value in a.items %}
-        {% if key == "name" %}
-			<span class="type"> NAME: <a>{{value}}</a></span>            
-			<br>
-            {% endif %}
-            {% endfor %}
-            {% for key, value in a.items %}
-             {% if key == "id" %}
-            <span class="type"> ID: <a>{{value}}</a></span>
-			<br>
-            {% endif %}
-            {% endfor %}
-            {% for key, value in a.items %}
-            {% if key == "prepTime" %}
-            <span class="cuisine"> Preparation Time: <a>{{value}}</a></span>
-            {% endif %}
-            {% endfor %}
-        </div>
-		  <div class="URL-tags">
-          {% for key, value in a.items %}
-            {% if key == "cookTime" %}
-            <span class="cuisine"> Cook Time: <a>{{value}}</a></span>
-			<br>
-            {% endif %}
-            {% endfor %}
-            {% for key, value in a.items %}
-            {% if key == "url" %}
-            <span class="type">
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{value}}" target="_blank"><img src="../static/images/social-facebook.png"/></a>
-            <a href="https://twitter.com/home?status=Love%20this%20recipe!%20Check%20it%20out {{value}} ! For%20more%20amazing%20recipes%20try%20http%3A%2F%2F52.33.209.172" target="_blank"><img src="../static/images/social-twitter.png"/></a>
+                <p>
+                </p>
+                <span class="w-pet-border"></span>
+                <div class="recipe-listing-item clearfix post-17 recipe type-recipe status-publish has-post-thumbnail hentry tag-cheese tag-goat recipe_type-cheese-2 recipe_type-potatos recipe_type-rools cuisine-indian course-snack ingredient-black-pepper ingredient-butter ingredient-cheese skill_level-intermediate" id="post-17" style="width:33%;float:left;">
+                    <div class="recipe-tags">
+                        
+                        <span class="type"> NAME: <a>{{a.name}}</a></span>
+                        <br> 
+                        <span class="type"> ID: <a>{{a.id}}</a></span>
+                        <br> 
+                    </div>
+                    <div class="URL-tags">
+                       
+                        <span class="cuisine"> Cook Time: <a>{{a.cookTime}}</a></span>
+                        <br> 
+                        <span class="type">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{a.url}}" target="_blank"><img src="../static/images/social-facebook.png"/></a>
+            <a href="https://twitter.com/home?status=Love%20this%20recipe!%20Check%20it%20out {{a.url}} ! For%20more%20amazing%20recipes%20try%20http%3A%2F%2F52.33.209.172" target="_blank"><img src="../static/images/social-twitter.png"/></a>
             </span>
-			<span class="type"><a href={{value}} class="readmore">Read More</a></span>
-            {% endif %}
-            {% endfor %}
-		</div>
-
-        <!--<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="readmore">Read more</a>-->
-    </div>
-    <div style="width:33%;float:left;">
-
-      <form method='post' action="">
-      {% csrf_token %}
-        {{form3.as_ul}}
-
-          {% for key, value in a.items %}
-          {% if key == "id" %}
-                   <!--  {{value}} -->
-                   <input type="hidden" name="id" value={{value}} />
-                  
-          {% endif %}
-          {% endfor %}
-
-
-        <input type='submit' value='Comment' />
-  
-      </form>
-    </div>
-    <div style="width:33%;float:left">div3</div>
-<!--</div>--><!-- end of post div -->
-
-{% endfor %}
-    </div><!-- end of left-area -->
-    
-	</div>
-
-
-        <!-- ============= CONTENT AREA STARTS HERE ============== -->
-       </div>
+                        <span class="type"><a href={{a.url}} class="readmore" target="_blank">Read More</a></span> 
+                    </div>
+                    <!--<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="readmore">Read more</a>-->
+                </div>
+                <div style="width:33%;float:left;">
+                    <form method='post' action="">
+                        {% csrf_token %} {{form3.as_ul}} 
+                        <!--  {{value}} -->
+                        <input type="hidden" name="id" value={{a.id}} /> 
+                        <input type='submit' value='Comment' />
+                    </form>
+                </div>
+                {# <div style="width:33%;float:left">div3</div> #}
+                <!--</div>-->
+                <!-- end of post div -->
+                {% endfor %}
+            </div>
+            <!-- end of left-area -->
         </div>
+        <!-- ============= CONTENT AREA STARTS HERE ============== -->
+    </div>
+</div>
 {% endblock %}
