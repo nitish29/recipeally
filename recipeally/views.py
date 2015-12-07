@@ -10,14 +10,12 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
-from django.db.models.signals import post_save
 from .forms import PostForm
 from recipesearch.models import User, UserProfile, Comments
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import logout
 
-from django.dispatch import Signal
 def registration(request):
     #pdb.set_trace()
     title = 'Welcome'
@@ -34,18 +32,14 @@ def registration(request):
         "form2": form2
     }
 
-    if form.is_valid():
-        if form2.is_valid():
-            instance = form.save(commit=False)
-            instance.set_password(instance.password)
-            instance.save()
-            instance2 = form2.save(commit=False)
-            instance2.user = instance
-            instance2.save()
+    form_validation = validateRegistrationForm(form,form2)
 
-            context = {
-                "title": "Thank You"
-            }
+    if form_validation == True:
+        context = {
+            "title": "Thank You"
+        }
+
+            
     if request.user.is_authenticated():
         context={"title":"You are already logged in"}
         return render(request, "home.html", context)
@@ -117,17 +111,12 @@ def recipe(request):
     if request.method == "POST":
 
         recipe_id = request.POST["id"]
-        if form3.is_valid():
-            instance = form3.save(commit=False)
-            instance.user_id = request.user.id
-            instance.recipe_str = recipe_id
-            instance.save()
-
-            form3 = PostForm()
-
-            context = {
-                "form3": form3
-            }
+        
+        comment_saved = saveUserComment(form3,request,recipe_id)
+        form3 = PostForm()
+        context = {
+            "form3": form3
+        }
 
     search_context = request.GET['q']
 
@@ -169,6 +158,34 @@ def hasComments(recipe_id):
     comments = Comments.objects.all().filter(recipe_str = recipe_id)
     if comments is not None:
         return comments
+    else:
+        return False
+
+
+def validateRegistrationForm(form, form2):
+    if form.is_valid():
+        if form2.is_valid():
+            instance = form.save(commit=False)
+            instance.set_password(instance.password)
+            instance.save()
+            instance2 = form2.save(commit=False)
+            instance2.user = instance
+            instance2.save()
+
+            return True
+        else:
+            return False
+    else:
+        return False
+
+def saveUserComment(form3,request,recipe_id):
+    if form3.is_valid():
+            instance = form3.save(commit=False)
+            instance.user_id = request.user.id
+            instance.recipe_str = recipe_id
+            instance.save()
+
+            return True
     else:
         return False
 
