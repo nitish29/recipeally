@@ -37,6 +37,7 @@ def registration(request):
     if form.is_valid():
         if form2.is_valid():
             instance = form.save(commit=False)
+            instance.set_password(instance.password)
             instance.save()
             instance2 = form2.save(commit=False)
             instance2.user = instance
