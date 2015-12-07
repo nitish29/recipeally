@@ -17,14 +17,15 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import logout
 
-
+from django.dispatch import Signal
 def registration(request):
+    #pdb.set_trace()
     title = 'Welcome'
     # if request.user.is_authenticated():
-    # 	title="My Title %s" %(request.user)
+    #   title="My Title %s" %(request.user)
     # print request
     # if request.method=="POST":
-    # 	print(request.POST)
+    #   print(request.POST)
     form = SignUpForm(request.POST or None)
     form2 = ProfileForm(request.POST or None)
     context = {
@@ -44,13 +45,16 @@ def registration(request):
             context = {
                 "title": "Thank You"
             }
+    if request.user.is_authenticated():
+        context={"title":"You are already logged in"}
+        return render(request, "home.html", context)
     return render(request, "registration.html", context)
 
 
 def user_login(request):
     # Like before, obtain the context for the user's request.
     context = RequestContext(request, {'errormessage': ''})
-
+    
     # If the request is a HTTP POST, try to pull out the relevant information.
     if request.method == 'POST':
         # Gather the username and password provided by the user.
@@ -89,7 +93,10 @@ def user_login(request):
     else:
         # No context variables to pass to the template system, hence the
         # blank dictionary object...
-        return render_to_response('login.html', {}, context)
+        if request.user.is_authenticated():
+            context={"title":"You are already logged in"}
+            return render(request, "home.html", context)
+        return render(request, "login.html", context)
 
 
 @login_required
@@ -109,17 +116,22 @@ def recipe(request):
     if request.method == "POST":
 
         recipe_id = request.POST["id"]
+        current_user=request.user.id
+        if(current_user != None):
+            if form3.is_valid():
+                instance = form3.save(commit=False)
+                instance.user_id = request.user.id
+                instance.recipe_str = recipe_id
+                instance.save()
 
-        if form3.is_valid():
-            instance = form3.save(commit=False)
-            instance.user_id = 1
-            instance.recipe_str = recipe_id
-            instance.save()
+                form3 = PostForm()
 
-            form3 = PostForm()
-
-            context = {
-                "form3": form3
+                context = {
+                    "form3": form3
+                }
+        else:
+            context={
+            "form3": '<a href="/login">Log in </a> to comment'
             }
 
     search_context = request.GET['q']
@@ -142,10 +154,14 @@ def recipe(request):
 
     reply_response = reply["response"]
     list_recipe = reply_response["docs"]
-
+    current_user=request.user.id
+    if(current_user == None):
+        form3=''
+    logged_in=current_user != None
     context = {
         "recipe_list": list_recipe,
-        "form3": form3
+        "form3": form3,
+        "logged_in": logged_in
     }
     return render(request, "recipe.html", context)
 
@@ -156,6 +172,3 @@ def returnCommentsData(list_recipe):
         comments = Comments.objects.all().filter(recipe_str = comment_id)
         if comments is not None:
             print(comments)
-
-
-

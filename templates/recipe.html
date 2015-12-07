@@ -32,14 +32,18 @@
                     <!--<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="readmore">Read more</a>-->
                 </div>
                 <div style="width:33%;float:left;">
+                {% if logged_in %}
                     <form method='post' action="">
                         {% csrf_token %} {{form3.as_ul}} 
                         <!--  {{value}} -->
                         <input type="hidden" name="id" value={{a.id}} /> 
                         <input type='submit' value='Comment' />
                     </form>
+                {% else %}
+                <a href="/login">Log in</a> to Comment
+                {% endif %}
                 </div>
-                {# <div style="width:33%;float:left">div3</div> #}
+                {# <div style="width:33%;float:left">{{a.comments.all}}:</div> #}
                 <!--</div>-->
                 <!-- end of post div -->
                 {% endfor %}
