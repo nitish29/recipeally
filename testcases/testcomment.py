@@ -4,10 +4,10 @@ from django.test import Client
 from recipesearch.models import Comments
 class HomeViewTestCase(TestCase):
 
-	def test_comment(self):
-		c=Client()
-		response = c.get('/recipe?q=butter+chicken')
-		self.assertTrue(b'comment' in response.content)
+	# def test_comment(self):
+	# 	c=Client()
+	# 	response = c.get('/recipe?q=butter+chicken')
+	# 	self.assertTrue(b'comment' in response.content)
 
 	# def test_comment_blank(self):
 	# 	c=Client()
