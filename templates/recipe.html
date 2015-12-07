@@ -14,9 +14,8 @@
                 <div class="recipe-listing-item clearfix post-17 recipe type-recipe status-publish has-post-thumbnail hentry tag-cheese tag-goat recipe_type-cheese-2 recipe_type-potatos recipe_type-rools cuisine-indian course-snack ingredient-black-pepper ingredient-butter ingredient-cheese skill_level-intermediate" id="post-17" style="width:33%;float:left;">
                     <div class="recipe-tags">
                         
-                        <span class="type"> NAME: <a>{{a.name}}</a></span>
-                        <br> 
-                        <span class="type"> ID: <a>{{a.id}}</a></span>
+                        <span class="type"> <a href={{a.url}} class="readmore" target="_blank">{{a.name}}</a></span>
+                        
                         <br> 
                     </div>
                     <div class="URL-tags">
@@ -27,7 +26,6 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u={{a.url}}" target="_blank"><img src="../static/images/social-facebook.png"/></a>
             <a href="https://twitter.com/home?status=Love%20this%20recipe!%20Check%20it%20out {{a.url}} ! For%20more%20amazing%20recipes%20try%20http%3A%2F%2F52.33.209.172" target="_blank"><img src="../static/images/social-twitter.png"/></a>
             </span>
-                        <span class="type"><a href={{a.url}} class="readmore" target="_blank">Read More</a></span> 
                     </div>
                     <!--<a href="http://inspirythemesdemo.com/alt-foodrecipes/recipe/goat-cheese-and-chorizo-rools/" class="readmore">Read more</a>-->
                 </div>
