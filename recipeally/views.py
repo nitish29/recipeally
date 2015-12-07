@@ -112,26 +112,20 @@ def user_logout(request):
 def recipe(request):
 
     form3 = PostForm(request.POST or None)
-
+    logged_in=request.user.is_authenticated()
     if request.method == "POST":
 
         recipe_id = request.POST["id"]
-        current_user=request.user.id
-        if(current_user != None):
-            if form3.is_valid():
-                instance = form3.save(commit=False)
-                instance.user_id = request.user.id
-                instance.recipe_str = recipe_id
-                instance.save()
+        if form3.is_valid():
+            instance = form3.save(commit=False)
+            instance.user_id = request.user.id
+            instance.recipe_str = recipe_id
+            instance.save()
 
-                form3 = PostForm()
+            form3 = PostForm()
 
-                context = {
-                    "form3": form3
-                }
-        else:
-            context={
-            "form3": '<a href="/login">Log in </a> to comment'
+            context = {
+                "form3": form3
             }
 
     search_context = request.GET['q']
@@ -153,22 +147,28 @@ def recipe(request):
     reply = json.loads(content.decode())
 
     reply_response = reply["response"]
-    list_recipe = reply_response["docs"]
-    current_user=request.user.id
-    if(current_user == None):
-        form3=''
-    logged_in=current_user != None
+    list_recipe = reply_response["docs"] 
+    
+    for recipe in list_recipe:
+        recipe_id = recipe['id']
+        
+        has_comments = hasComments(recipe_id)
+        if has_comments != False:
+            recipe['comments'] = has_comments
+
     context = {
         "recipe_list": list_recipe,
         "form3": form3,
-        "logged_in": logged_in
+        "logged_in":logged_in
     }
     return render(request, "recipe.html", context)
 
-def returnCommentsData(list_recipe):
-    pdb.set_trace()
-    for recipe in list_recipe:
-        comment_id = recipe['id']
-        comments = Comments.objects.all().filter(recipe_str = comment_id)
-        if comments is not None:
-            print(comments)
+
+def hasComments(recipe_id):
+    comments = Comments.objects.all().filter(recipe_str = recipe_id)
+    if comments is not None:
+        return comments
+    else:
+        return False
+
+

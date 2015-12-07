@@ -43,7 +43,12 @@
                 <a href="/login">Log in</a> to Comment
                 {% endif %}
                 </div>
-                {# <div style="width:33%;float:left">{{a.comments.all}}:</div> #}
+                {% if a.comments %}
+                  <h4>Comments:</h4>
+                  {% for comment in a.comments %}
+                   <div style="width:33%;float:left">{{comment.comment_text}}</div> 
+                  {% endfor %}
+                {% endif %}
                 <!--</div>-->
                 <!-- end of post div -->
                 {% endfor %}
