@@ -141,21 +141,27 @@ def recipe(request):
     reply = json.loads(content.decode())
 
     reply_response = reply["response"]
-    list_recipe = reply_response["docs"]
+    list_recipe = reply_response["docs"] 
+    
+    for recipe in list_recipe:
+        recipe_id = recipe['id']
+        
+        has_comments = hasComments(recipe_id)
+        if has_comments != False:
+            recipe['comments'] = has_comments
 
     context = {
         "recipe_list": list_recipe,
-        "form3": form3
+        "form3": form3,
     }
     return render(request, "recipe.html", context)
 
-def returnCommentsData(list_recipe):
-    pdb.set_trace()
-    for recipe in list_recipe:
-        comment_id = recipe['id']
-        comments = Comments.objects.all().filter(recipe_str = comment_id)
-        if comments is not None:
-            print(comments)
 
+def hasComments(recipe_id):
+    comments = Comments.objects.all().filter(recipe_str = recipe_id)
+    if comments is not None:
+        return comments
+    else:
+        return False
 
 
