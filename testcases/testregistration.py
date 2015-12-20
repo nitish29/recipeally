@@ -27,3 +27,12 @@ class LoginViewTestCase(TestCase):
 		response = c.post('/registration/', {'username': 'archit', 'password': '123','email':'architve@buffalo.edu'})
 		self.assertFalse(b'Invalid login details' in response.content)
 		self.assertFalse(b'A user with that username already exists.' in response.content)
+
+	def test_reg_already_logged_in(self):
+		c=Client()
+		u=User.objects.create_user(username='architv',password='123')
+		u.save()
+		self.client.login(username='archtitv', password='123')
+		#response = c.post('/login/', {'username': 'architv', 'password': '123', 'email':'ab@c.com'})
+		response2=c.get('/registration')
+		self.assertFalse(b'username' in response2.content)

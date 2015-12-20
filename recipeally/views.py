@@ -71,13 +71,7 @@ def user_login(request):
                 # We'll send the user back to the homepage.
                 login(request, user)
                 return HttpResponseRedirect('/')
-            else:
-                # An inactive account was used - no logging in!
-                return HttpResponse("Your account is disabled.")
         else:
-            # Bad login details were provided. So we can't log the user in.
-            # print "Invalid login details: {0}, {1}".format(username, password)
-            # return HttpResponse("Invalid login details supplied.")
             context = RequestContext(
                 request, {
                     'errormessage': 'Invalid login details supplied.'})
@@ -106,7 +100,8 @@ def user_logout(request):
 # Display a particular recipe.
 def recipe(request):
 
-    form3 = PostForm(request.POST or None)
+    form3 = PostForm(request.POST or None, auto_id=False)
+
     logged_in=request.user.is_authenticated()
     if request.method == "POST":
 
