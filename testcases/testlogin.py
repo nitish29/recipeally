@@ -46,3 +46,8 @@ class LoginViewTestCase(TestCase):
 		self.client.login(username='archtitv', password='123')
 		response2=c.get('/logout')
 		self.assertFalse(b'logout' in response2.content)
+
+	def test_anonymous_user(self):
+		c=Client()
+		response2=c.get('/logout')
+		self.assertFalse(b'Page not found' in response2.content)
