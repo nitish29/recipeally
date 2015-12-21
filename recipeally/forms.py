@@ -16,6 +16,9 @@ class SignUpForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
+    
         for fieldname in ['username']:
             self.fields[fieldname].help_text = None
     # def clean_email(self):
