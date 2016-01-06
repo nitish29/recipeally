@@ -10,7 +10,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'recipeally',
         'USER': 'postgres',
-        'PASSWORD': 'fuckubaby',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
