@@ -1,4 +1,10 @@
-# hungryally Installation Steps
+# About RecipeAlly
+
+RecipeAlly is a recipe search system that contains a curated list of over 150 thousand recipes. The recipes are indexed using Solr which facilitates search by ingredients, recipe name etc. Other features supported by the application include social media sharing, user feedback.
+
+
+
+# recipeally Installation Steps
 
 - Install Virtual Env and Virtual Env wrapper
 
